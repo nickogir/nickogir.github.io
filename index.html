@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Nickogir Games - Play Snake online in your browser."
+    />
     <title>Nickogir Games</title>
     <script
       async
@@ -10,32 +14,106 @@
       crossorigin="anonymous"
     ></script>
     <style>
+      :root {
+        --bg-1: #0f1520;
+        --bg-2: #141f31;
+        --card: #1b283d;
+        --text: #f2f6ff;
+        --muted: #b9c7e3;
+        --accent: #42d392;
+        --accent-2: #7fd8ff;
+        --border: #2f3e58;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
       body {
         margin: 0;
         min-height: 100vh;
         display: grid;
         place-items: center;
-        font-family: Arial, sans-serif;
-        background: #0f1520;
-        color: #f2f6ff;
+        font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+        background: radial-gradient(circle at 20% 10%, var(--bg-2) 0%, var(--bg-1) 60%);
+        color: var(--text);
       }
+
       main {
-        width: min(92vw, 560px);
-        padding: 24px;
-        border: 1px solid #2f3e58;
-        border-radius: 12px;
-        background: #162131;
+        width: min(92vw, 620px);
+        padding: 26px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: color-mix(in oklab, var(--card) 92%, black);
+        box-shadow: 0 12px 30px rgb(0 0 0 / 35%);
       }
-      a {
-        color: #7fd8ff;
+
+      h1 {
+        margin: 0 0 10px;
+        font-size: clamp(1.8rem, 6vw, 2.7rem);
+        letter-spacing: 0.08em;
+        color: var(--text);
+        text-shadow: 0 0 14px rgb(66 211 146 / 35%);
+      }
+
+      p {
+        margin: 0;
+        line-height: 1.45;
+        color: var(--muted);
+      }
+
+      .hero {
+        display: grid;
+        gap: 14px;
+      }
+
+      .cta {
+        display: inline-block;
+        width: fit-content;
+        margin-top: 4px;
+        padding: 10px 16px;
+        border-radius: 9px;
+        border: 1px solid #51e1a4;
+        background: #173827;
+        color: var(--text);
         font-weight: 700;
+        text-decoration: none;
+      }
+
+      .cta:hover {
+        background: #21523a;
+      }
+
+      .links {
+        margin-top: 18px;
+        padding-top: 14px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .links a {
+        color: var(--accent-2);
+        text-decoration: none;
+      }
+
+      .links a:hover {
+        text-decoration: underline;
       }
     </style>
   </head>
   <body>
     <main>
-      <h1>Nickogir Games</h1>
-      <p><a href="https://nickogir.github.io/snake-game/">Play Snake</a></p>
+      <section class="hero">
+        <h1>NICKOGIR GAMES</h1>
+        <p>Play a fast browser Snake game with keyboard controls and score tracking.</p>
+        <a class="cta" href="https://nickogir.github.io/snake-game/">Play Snake</a>
+      </section>
+      <nav class="links" aria-label="Legal links">
+        <a href="https://nickogir.github.io/snake-game/privacy.html">Privacy</a>
+        <a href="https://nickogir.github.io/snake-game/terms.html">Terms</a>
+      </nav>
     </main>
   </body>
 </html>
