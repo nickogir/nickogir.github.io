@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://nickogir.github.io/sitemap.xml
+Sitemap: https://nickogir.github.io/sitemap-pages.xml
