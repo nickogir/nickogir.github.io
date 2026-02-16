@@ -51,6 +51,7 @@
         background: color-mix(in oklab, var(--card) 92%, black);
         box-shadow: 0 12px 30px rgb(0 0 0 / 35%);
         backdrop-filter: blur(2px);
+        text-align: center;
       }
 
       h1 {
@@ -59,6 +60,26 @@
         letter-spacing: 0.12em;
         color: var(--text);
         text-shadow: 0 0 16px rgb(64 219 159 / 34%);
+      }
+
+      .logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: center;
+      }
+
+      .logo-mark {
+        width: 18px;
+        height: 18px;
+        border-radius: 4px;
+        transform: rotate(45deg);
+        background: linear-gradient(145deg, #47e7a9 0%, #69d0ff 100%);
+        box-shadow: 0 0 14px rgb(71 231 169 / 55%);
+      }
+
+      .logo-text {
+        display: inline-block;
       }
 
       p {
@@ -70,6 +91,7 @@
       .hero {
         display: grid;
         gap: 12px;
+        justify-items: center;
       }
 
       .eyebrow {
@@ -100,7 +122,7 @@
       .grid {
         margin-top: 18px;
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 10px;
       }
 
@@ -128,6 +150,7 @@
         display: flex;
         gap: 14px;
         flex-wrap: wrap;
+        justify-content: center;
       }
 
       .updated {
@@ -156,7 +179,10 @@
     <main>
       <section class="hero">
         <p class="eyebrow">Browser Mini Games</p>
-        <h1>NEON ARCADE</h1>
+        <h1 class="logo">
+          <span class="logo-mark" aria-hidden="true"></span>
+          <span class="logo-text">NEON ARCADE</span>
+        </h1>
         <p>Play fast, clean browser games. Start with Snake and jump into instant sessions.</p>
         <a class="cta" href="https://nickogir.github.io/snake-game/">Play Snake</a>
       </section>
@@ -168,10 +194,6 @@
         <article class="tile">
           <h2>Skill Loop</h2>
           <p>Score tracking with quick restart flow.</p>
-        </article>
-        <article class="tile">
-          <h2>Consistent Updates</h2>
-          <p>Feature and quality updates are logged publicly.</p>
         </article>
       </section>
       <p class="updated">Last updated: February 13, 2026</p>
