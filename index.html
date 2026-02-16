@@ -120,14 +120,16 @@
         display: inline-block;
         width: fit-content;
         margin-top: 2px;
-        padding: 12px 20px;
-        border-radius: 9px;
+        padding: 15px 28px;
+        border-radius: 12px;
         border: 1px solid #4fe4a5;
         background: linear-gradient(130deg, #184632 0%, #163a5a 100%);
         color: var(--text);
-        font-weight: 700;
+        font-weight: 800;
         text-decoration: none;
-        font-size: 0.98rem;
+        font-size: 1.12rem;
+        letter-spacing: 0.02em;
+        box-shadow: 0 8px 20px rgb(19 68 50 / 38%);
       }
 
       .cta:hover {
@@ -144,31 +146,6 @@
         text-decoration: underline;
       }
 
-      .grid {
-        margin-top: 20px;
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
-      }
-
-      .tile {
-        border: 1px solid #2f4262;
-        border-radius: 10px;
-        padding: 12px;
-        background: rgb(7 16 29 / 52%);
-        text-align: left;
-      }
-
-      .tile h2 {
-        margin: 0 0 5px;
-        font-size: 1rem;
-        color: #d8e6ff;
-      }
-
-      .tile p {
-        font-size: 0.88rem;
-      }
-
       .links {
         margin-top: 16px;
         padding-top: 14px;
@@ -180,7 +157,7 @@
       }
 
       .updated {
-        margin-top: 12px;
+        margin-top: 14px;
         font-size: 0.82rem;
         color: var(--muted);
       }
@@ -198,10 +175,6 @@
       @media (width <= 760px) {
         main {
           padding: 24px 18px 20px;
-        }
-
-        .grid {
-          grid-template-columns: 1fr;
         }
       }
     </style>
@@ -223,16 +196,6 @@
             >How it works</a
           >
         </div>
-      </section>
-      <section class="grid" aria-label="Highlights">
-        <article class="tile">
-          <h2>Instant Start</h2>
-          <p>No downloads. Open and play in seconds.</p>
-        </article>
-        <article class="tile">
-          <h2>Skill Loop</h2>
-          <p>Score tracking with quick restart flow.</p>
-        </article>
       </section>
       <p class="updated">Last updated: February 13, 2026</p>
       <nav class="links" aria-label="Legal links">
