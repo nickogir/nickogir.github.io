@@ -106,6 +106,7 @@
         max-width: 54ch;
         font-size: 1.02rem;
         line-height: 1.55;
+        color: #d2def6;
       }
 
       .cta-row {
@@ -130,10 +131,17 @@
         font-size: 1.12rem;
         letter-spacing: 0.02em;
         box-shadow: 0 8px 20px rgb(19 68 50 / 38%);
+        transition:
+          transform 120ms ease,
+          box-shadow 160ms ease,
+          border-color 160ms ease;
       }
 
       .cta:hover {
         background: linear-gradient(130deg, #1f5a40 0%, #1f4c74 100%);
+        border-color: #70f2bc;
+        transform: translateY(-1px);
+        box-shadow: 0 11px 24px rgb(20 87 64 / 46%);
       }
 
       .cta-secondary {
@@ -151,25 +159,27 @@
         padding-top: 14px;
         border-top: 1px solid var(--border);
         display: flex;
-        gap: 14px;
+        gap: 12px;
         flex-wrap: wrap;
         justify-content: center;
       }
 
       .updated {
         margin-top: 14px;
-        font-size: 0.82rem;
-        color: var(--muted);
+        font-size: 0.81rem;
+        color: #aab8d7;
       }
 
       .links a {
         color: #90b8e8;
         text-decoration: none;
-        font-size: 0.82rem;
+        font-size: 0.78rem;
+        opacity: 0.84;
       }
 
       .links a:hover {
         text-decoration: underline;
+        opacity: 1;
       }
 
       @media (width <= 760px) {
