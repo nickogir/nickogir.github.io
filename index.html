@@ -426,8 +426,26 @@
           <a href="https://nickogir.github.io/snake-game/privacy.html">Privacy</a>
           <a href="https://nickogir.github.io/snake-game/terms.html">Terms</a>
         </nav>
-        <span class="updated">Last updated: February 13, 2026</span>
+        <span class="updated">Last updated: <span id="last-updated">-</span></span>
       </footer>
     </main>
+    <script>
+      (() => {
+        const target = document.getElementById("last-updated");
+        if (!target) {
+          return;
+        }
+        const modified = new Date(document.lastModified);
+        if (Number.isNaN(modified.getTime())) {
+          target.textContent = "-";
+          return;
+        }
+        target.textContent = modified.toLocaleDateString(undefined, {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
+      })();
+    </script>
   </body>
 </html>
