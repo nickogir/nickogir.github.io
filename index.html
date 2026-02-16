@@ -45,7 +45,7 @@
 
       main {
         width: min(94vw, 760px);
-        padding: 26px;
+        padding: 30px 28px 24px;
         border: 1px solid var(--border);
         border-radius: 14px;
         background: color-mix(in oklab, var(--card) 92%, black);
@@ -56,7 +56,7 @@
 
       h1 {
         margin: 0;
-        font-size: clamp(2rem, 7vw, 3rem);
+        font-size: clamp(2.2rem, 8vw, 3.4rem);
         letter-spacing: 0.12em;
         color: var(--text);
         text-shadow: 0 0 16px rgb(64 219 159 / 34%);
@@ -70,8 +70,8 @@
       }
 
       .logo-mark {
-        width: 18px;
-        height: 18px;
+        width: 20px;
+        height: 20px;
         border-radius: 4px;
         transform: rotate(45deg);
         background: linear-gradient(145deg, #47e7a9 0%, #69d0ff 100%);
@@ -90,37 +90,62 @@
 
       .hero {
         display: grid;
-        gap: 12px;
+        gap: 14px;
         justify-items: center;
       }
 
       .eyebrow {
-        font-size: 0.78rem;
+        font-size: 0.76rem;
         letter-spacing: 0.12em;
         text-transform: uppercase;
         color: #8ec9ff;
         font-weight: 700;
       }
 
+      .subtitle {
+        max-width: 54ch;
+        font-size: 1.02rem;
+        line-height: 1.55;
+      }
+
+      .cta-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
       .cta {
         display: inline-block;
         width: fit-content;
-        margin-top: 6px;
-        padding: 11px 18px;
+        margin-top: 2px;
+        padding: 12px 20px;
         border-radius: 9px;
         border: 1px solid #4fe4a5;
         background: linear-gradient(130deg, #184632 0%, #163a5a 100%);
         color: var(--text);
         font-weight: 700;
         text-decoration: none;
+        font-size: 0.98rem;
       }
 
       .cta:hover {
         background: linear-gradient(130deg, #1f5a40 0%, #1f4c74 100%);
       }
 
+      .cta-secondary {
+        color: #9fd8ff;
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+
+      .cta-secondary:hover {
+        text-decoration: underline;
+      }
+
       .grid {
-        margin-top: 18px;
+        margin-top: 20px;
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 10px;
@@ -129,18 +154,19 @@
       .tile {
         border: 1px solid #2f4262;
         border-radius: 10px;
-        padding: 10px;
+        padding: 12px;
         background: rgb(7 16 29 / 52%);
+        text-align: left;
       }
 
       .tile h2 {
-        margin: 0 0 4px;
-        font-size: 0.92rem;
+        margin: 0 0 5px;
+        font-size: 1rem;
         color: #d8e6ff;
       }
 
       .tile p {
-        font-size: 0.82rem;
+        font-size: 0.88rem;
       }
 
       .links {
@@ -154,14 +180,15 @@
       }
 
       .updated {
-        margin-top: 10px;
+        margin-top: 12px;
         font-size: 0.82rem;
         color: var(--muted);
       }
 
       .links a {
-        color: var(--accent-2);
+        color: #90b8e8;
         text-decoration: none;
+        font-size: 0.82rem;
       }
 
       .links a:hover {
@@ -169,6 +196,10 @@
       }
 
       @media (width <= 760px) {
+        main {
+          padding: 24px 18px 20px;
+        }
+
         .grid {
           grid-template-columns: 1fr;
         }
@@ -183,8 +214,15 @@
           <span class="logo-mark" aria-hidden="true"></span>
           <span class="logo-text">NEON ARCADE</span>
         </h1>
-        <p>Play fast, clean browser games. Start with Snake and jump into instant sessions.</p>
-        <a class="cta" href="https://nickogir.github.io/snake-game/">Play Snake</a>
+        <p class="subtitle">
+          Play fast, clean browser games. Start with Snake and jump into instant sessions.
+        </p>
+        <div class="cta-row">
+          <a class="cta" href="https://nickogir.github.io/snake-game/">Play Snake</a>
+          <a class="cta-secondary" href="https://nickogir.github.io/snake-game/how-to-play.html"
+            >How it works</a
+          >
+        </div>
       </section>
       <section class="grid" aria-label="Highlights">
         <article class="tile">
