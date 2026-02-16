@@ -73,7 +73,7 @@
 
       main {
         width: min(95vw, 900px);
-        padding: 36px 38px 24px;
+        padding: 36px 38px 32px;
         border: 1px solid var(--border);
         border-radius: 18px;
         background: rgb(22 35 57 / 86%);
@@ -137,11 +137,12 @@
       }
 
       .eyebrow {
-        font-size: 0.76rem;
-        letter-spacing: 0.12em;
+        font-size: 0.7rem;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
         color: #8ec9ff;
-        font-weight: 700;
+        font-weight: 600;
+        opacity: 0.6;
       }
 
       .subtitle {
@@ -152,7 +153,10 @@
       }
 
       .preview {
-        margin: 6px auto 0;
+        margin: -6px auto 0;
+        display: block;
+        text-decoration: none;
+        color: inherit;
         width: min(100%, 720px);
         border: 1px solid rgb(122 164 234 / 24%);
         border-radius: 12px;
@@ -160,22 +164,62 @@
         position: relative;
         overflow: hidden;
         box-shadow: 0 8px 20px rgb(0 0 0 / 34%);
+        cursor: pointer;
+        transition:
+          transform 160ms ease,
+          border-color 180ms ease,
+          box-shadow 180ms ease;
       }
 
-      .preview iframe {
+      .preview::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        background: rgb(4 10 20 / 0%);
+        transition: background 180ms ease;
+      }
+
+      .preview:hover {
+        transform: scale(1.015);
+        border-color: rgb(122 164 234 / 44%);
+        box-shadow:
+          0 12px 26px rgb(0 0 0 / 40%),
+          0 0 20px rgb(110 178 255 / 26%);
+      }
+
+      .preview:hover::before {
+        background: rgb(4 10 20 / 10%);
+      }
+
+      .preview img {
         display: block;
         width: 100%;
         height: min(28vw, 220px);
         min-height: 190px;
-        border: 0;
+        object-fit: cover;
+      }
+
+      .preview::after {
+        content: "";
+        position: absolute;
+        inset: 0;
         pointer-events: none;
+        background:
+          radial-gradient(circle at 50% 50%, transparent 56%, rgb(2 8 18 / 36%) 100%),
+          repeating-linear-gradient(
+            0deg,
+            rgb(180 214 255 / 4%) 0 1px,
+            transparent 1px 5px
+          );
       }
 
       .preview-badge {
         position: absolute;
         top: 10px;
         left: 10px;
-        z-index: 1;
+        z-index: 2;
         padding: 4px 8px;
         border-radius: 999px;
         border: 1px solid rgb(121 174 255 / 30%);
@@ -185,20 +229,57 @@
         letter-spacing: 0.04em;
       }
 
+      .preview-hint {
+        position: absolute;
+        right: 12px;
+        bottom: 10px;
+        z-index: 2;
+        padding: 5px 10px;
+        border-radius: 999px;
+        border: 1px solid rgb(121 174 255 / 47%);
+        background: rgb(7 20 39 / 90%);
+        color: #d8ecff;
+        font-size: 0.74rem;
+        letter-spacing: 0.03em;
+        box-shadow: 0 2px 8px rgb(0 0 0 / 28%);
+        opacity: 0;
+        transform: translateY(4px);
+        transition:
+          opacity 160ms ease,
+          transform 160ms ease;
+      }
+
+      .preview:hover .preview-hint {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
       .cta-row {
         display: flex;
+        width: min(100%, 720px);
         align-items: center;
         justify-content: center;
-        gap: 12px;
-        flex-wrap: wrap;
-        margin-top: 2px;
+        margin-top: -8px;
+        position: relative;
+      }
+
+      .cta-row::before {
+        content: "";
+        position: absolute;
+        width: min(360px, 72%);
+        height: 74px;
+        border-radius: 999px;
+        background: radial-gradient(circle, rgb(79 228 165 / 32%) 0%, transparent 70%);
+        filter: blur(10px);
+        pointer-events: none;
       }
 
       .cta {
         display: inline-block;
-        width: fit-content;
+        width: clamp(280px, 40%, 360px);
+        max-width: 100%;
         margin-top: 2px;
-        padding: 16px 34px;
+        padding: 15px 24px;
         border-radius: 12px;
         border: 1px solid #4fe4a5;
         background: linear-gradient(130deg, #184632 0%, #163a5a 100%);
@@ -207,7 +288,10 @@
         text-decoration: none;
         font-size: 1.18rem;
         letter-spacing: 0.02em;
+        text-align: center;
+        white-space: nowrap;
         box-shadow: 0 8px 20px rgb(19 68 50 / 38%);
+        position: relative;
         transition:
           transform 120ms ease,
           box-shadow 160ms ease,
@@ -226,24 +310,11 @@
         box-shadow: 0 5px 14px rgb(20 87 64 / 34%);
       }
 
-      .cta.secondary {
-        padding: 14px 22px;
-        font-size: 0.96rem;
-        border-color: #4f86cc;
-        background: linear-gradient(130deg, #132848 0%, #172e4e 100%);
-        box-shadow: 0 7px 16px rgb(18 35 63 / 36%);
-      }
-
-      .cta.secondary:hover {
-        border-color: #7eb6ff;
-        background: linear-gradient(130deg, #17335e 0%, #1e3f6f 100%);
-        box-shadow: 0 10px 20px rgb(24 49 89 / 45%);
-      }
-
       .cta-secondary {
         color: #9fd8ff;
         text-decoration: none;
         font-size: 0.9rem;
+        margin-top: 8px;
       }
 
       .cta-secondary:hover {
@@ -251,7 +322,8 @@
       }
 
       .footer-bar {
-        margin-top: 16px;
+        width: min(100%, 720px);
+        margin: 24px auto 0;
         padding-top: 14px;
         border-top: 1px solid var(--border);
         display: flex;
@@ -261,8 +333,8 @@
       }
 
       .updated {
-        font-size: 12px;
-        color: rgb(170 184 215 / 66%);
+        font-size: 11px;
+        color: rgb(170 184 215 / 56%);
         white-space: nowrap;
       }
 
@@ -287,10 +359,11 @@
 
       @media (width <= 760px) {
         main {
-          padding: 24px 18px 20px;
+          padding: 24px 18px 28px;
         }
 
         .footer-bar {
+          width: 100%;
           flex-direction: column;
           align-items: center;
         }
@@ -312,26 +385,29 @@
         <p class="subtitle">
           Play fast, clean browser games. Start with Snake and jump into instant sessions.
         </p>
-        <section class="preview" aria-label="Snake preview">
+        <a
+          class="preview"
+          href="https://nickogir.github.io/snake-game/"
+          aria-label="Open Snake and start playing"
+        >
           <span class="preview-badge">Snake • Classic</span>
-          <iframe
-            src="https://nickogir.github.io/snake-game/"
-            title="Snake preview"
-            loading="lazy"
-          ></iframe>
-        </section>
+          <img
+            src="./assets/snake-preview.png"
+            alt="Snake 3D gameplay preview showing the snake and prey on the board"
+            loading="eager"
+          />
+          <span class="preview-hint">▶ Click to play</span>
+        </a>
         <div class="cta-row">
           <a class="cta" href="https://nickogir.github.io/snake-game/">Start playing</a>
-          <a class="cta secondary" href="https://nickogir.github.io/snake-game/">Choose a game</a>
         </div>
         <a class="cta-secondary" href="https://nickogir.github.io/snake-game/how-to-play.html"
-          >How it works</a
+          >How to play</a
         >
       </section>
       <footer class="footer-bar" aria-label="Site links">
         <nav class="link-group" aria-label="Game links">
           <a href="https://nickogir.github.io/snake-game/">Games</a>
-          <a href="https://nickogir.github.io/snake-game/how-to-play.html">How to play</a>
           <a href="https://nickogir.github.io/snake-game/changelog.html">Changelog</a>
         </nav>
         <nav class="link-group" aria-label="Company links">
